@@ -9,4 +9,4 @@ services:
       - .:/app
     working_dir: /app
     tty: true
-    command: sh -c "cd client && npm run build && npm run serve"
+    # command: sh -c "cd client && npm run build && npm run serve"
