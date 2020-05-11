@@ -7,6 +7,16 @@ services:
       - 8080:8080
     volumes:
       - .:/app
-    working_dir: /app
+    working_dir: /app/client
     tty: true
     # command: sh -c "cd client && npm run build && npm run serve"
+
+  server:
+    build:
+      context: ./docker/server
+    ports:
+      - 8082:8082
+    volumes:
+      - .:/app
+    working_dir: /app/server
+    tty: true
