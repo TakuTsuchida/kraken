@@ -2,9 +2,9 @@ import axios from 'axios';
 import router from '@/router/index'
 
 export default {
-  login({commit}, credential) {
+  signIn({commit}, credential) {
     // TODO http://localhost/api は共通化するべきである。
-    axios.post('http://localhost/api/login', credential)
+    axios.post('http://localhost/api/auth/signIn', credential)
       .then(res => {
         if (res.status === 200 && 'token' in res.data) {
           const userData = {
@@ -16,18 +16,17 @@ export default {
           router.push('/home')
         }
       })
+      .catch(error => {
+        console.error(error);
+      })
   },
   signUp({commit}, credential) {
     // TODO http://localhost/api は共通化するべきである。
     axios.post('http://localhost/api/auth/signUp', credential)
-      .then(res => {
-        // TODO resをどうするか？
-        console.log(res);
-        commit('removeUser');
-        router.push('/auth/signIn')
-      })
       .catch(error => {
         console.error(error);
       })
+    commit('removeUser');
+    router.push('/auth/signIn');
   },
 }

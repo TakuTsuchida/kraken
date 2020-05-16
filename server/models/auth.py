@@ -22,6 +22,11 @@ def validate_data(email: str, password: str) -> bool:
         return False
     return email and password
 
+async def validate_password(email: str, password: str) -> bool:
+    is_exist = await Auth.exists(email=email, password=password)
+    print(email, password, is_exist, bool(is_exist))
+    return is_exist
+
 # TODO separate queries and commands
 async def create(email: str, password: str) -> None:
     try:

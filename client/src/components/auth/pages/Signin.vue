@@ -10,7 +10,7 @@
                     <v-text-field label="Password" v-model="password"/> 
                 </v-card-text>
                 <v-card-actions class="justify-center">
-                    <v-btn color="#1565C0" dark large @click="onClick">LOG IN</v-btn>
+                    <v-btn color="#1565C0" dark large v-on:click="submit">LOG IN</v-btn>
                 </v-card-actions>
             </v-card>
         </v-col>
@@ -26,12 +26,12 @@ export default {
         }
     },
     methods: {
-        ...mapActions({
-            login: 'auth/login'
-        }),
-        onClick() {
+        ...mapActions(
+            'auth',
+            ['signIn']),
+        submit() {
             const credential = {email: this.email, password: this.password};
-            this.login(credential);
+            this.signIn(credential);
         },
     },
 }
