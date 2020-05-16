@@ -19,12 +19,12 @@ export default {
   },
   signUp({commit}, credential) {
     // TODO http://localhost/api は共通化するべきである。
-    axios.post('http://localhost/api/signUp', credential)
+    axios.post('http://localhost/api/auth/signUp', credential)
       .then(res => {
         // TODO resをどうするか？
         console.log(res);
         commit('removeUser');
-        router.push('/login')
+        router.push('/auth/signIn')
       })
       .catch(error => {
         console.error(error);

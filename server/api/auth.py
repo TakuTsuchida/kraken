@@ -3,9 +3,10 @@ from models.auth import validate_is_exist, validate_data, create
 PAYLOADS = {}
 
 async def signUp(req, resp):
-    # moc data
-    email = "test1@gmail.com" 
-    password = "test1_pwd"
+    # bind
+    data = await req.media()
+    email = data["email"]
+    password = data["password"]
 
     # validation
     if await validate_is_exist(email):
