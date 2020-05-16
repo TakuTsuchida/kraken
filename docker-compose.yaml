@@ -20,3 +20,16 @@ services:
       - .:/app
     working_dir: /app/server
     tty: true
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./sqls/init:/docker-entrypoint-initdb.d
+    ports:
+      - 3307:3306 # change default port number
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: docker_db
+      MYSQL_USER: docker_user
+      MYSQL_PASSWORD: docker_user_pwd
