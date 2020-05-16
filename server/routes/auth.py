@@ -1,9 +1,9 @@
-from api.auth import *
+from api.auth import (signUp, signIn)
 
 BASE = "/auth"
-SIGNUP = BASE + "/signup"
-SIGNIN = BASE + "/signin"
+SIGNUP = BASE + "/signUp"
+SIGNIN = BASE + "/signIn"
 
 def auth_routes(api):
-    api.add_route(SIGNUP, signup)
-    api.add_route(SIGNIN, signin)
+    api.add_route(SIGNUP, signUp)
+    api.add_route(SIGNIN, signIn)
