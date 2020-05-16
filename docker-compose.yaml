@@ -33,3 +33,18 @@ services:
       MYSQL_DATABASE: docker_db
       MYSQL_USER: docker_user
       MYSQL_PASSWORD: docker_user_pwd
+
+  nginx:
+    image: nginx
+    depends_on:
+      - server
+    container_name: myapp-nginx
+    ports:
+      - 80:80
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+
+volumes:
+  mysql_data:
