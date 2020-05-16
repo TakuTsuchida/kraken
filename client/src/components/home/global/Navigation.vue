@@ -19,6 +19,7 @@
       <v-list-item
         v-for="item in items"
         :key="item.title"
+        :to="item.to"
       >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -38,7 +39,7 @@ import { mdiAccount } from '@mdi/js'
     data () {
       return {
         items: [
-          { title: 'My Account', icon: mdiAccount },
+          { title: 'House Work', icon: mdiAccount, to: '/home/houseWork' },
         ],
       }
     },
