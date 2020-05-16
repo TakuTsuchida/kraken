@@ -29,4 +29,8 @@ export default {
     commit('removeUser');
     router.push('/auth/signIn');
   },
+  logout({commit}) {
+    commit('removeUser');
+    router.push('/auth/signin');
+  },
 }

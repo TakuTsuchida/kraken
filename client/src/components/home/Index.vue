@@ -12,8 +12,11 @@
   </v-app>
 </template>
 <script>
-import Header from '@/components/organisms/share/Header.vue'
-import Navigation from '@/components/organisms/share/Navigation.vue'
+import { mapState } from 'vuex'
+import router from '@/router/index'
+
+import Header from '@/components/home/global/Header.vue'
+import Navigation from '@/components/home/global/Navigation.vue'
 
 export default {
   name: 'Home',
@@ -21,8 +24,14 @@ export default {
     Header,
     Navigation,
   },
+  computed: {
+    ...mapState(
+      'auth',
+      ['token']
+    ),
+  },
   created() {
-    this.$store.commit('home/initMenuListFlg');
+    if (!this.token) router.push('/auth/signin');
   },
 }
 </script>

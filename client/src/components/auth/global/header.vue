@@ -10,15 +10,13 @@
     </v-app-bar>
 </template>
 <script>
-  import {
-    mdiLockOutline,
-  } from '@mdi/js'
+import { mdiLockOutline } from '@mdi/js'
 
-  export default {
-    data() {
-        return {
-            mdiLockOutline,
-        }
-    },
-  }
+export default {
+  data() {
+      return {
+          mdiLockOutline,
+      }
+  },  
+}
 </script>

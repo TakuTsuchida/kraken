@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Header from '@/components/auth/global/header.vue'
+import Header from '@/components/auth/global/Header.vue'
 export default {
     components: {
         Header,
