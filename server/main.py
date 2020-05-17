@@ -8,7 +8,7 @@ api = responder.API()
 async def start_db_connection():
     await Tortoise.init(
         db_url="mysql://root:password@db:3306/docker_db",
-        modules={"models": ["models.auth"]}
+        modules={"models": ["models.auth.table"]}
     )
 
 @api.on_event("shutdown")
