@@ -1,4 +1,5 @@
 import responder
+import uvicorn
 from tortoise import Tortoise
 from routes.auth import auth_routes
 
@@ -18,4 +19,4 @@ async def close_db_connection():
 auth_routes(api)
 
 if __name__ == '__main__':
-    api.run(address='0.0.0.0',port=8082)
+    uvicorn.run("main:api", host="0.0.0.0", port=8082, reload=True, log_level="info")
