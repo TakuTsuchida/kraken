@@ -5,7 +5,8 @@ async def migrate():
         db_url="mysql://root:password@db:3306/docker_db",
         modules={
             "models": [
-                "models.auth.table"
+                "models.auth.table",
+                "models.task.table",
             ]
         }
     )
