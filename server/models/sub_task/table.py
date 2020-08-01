@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from enum import IntEnum
 
 from tortoise.models import Model
@@ -9,18 +11,19 @@ class Importance(IntEnum):
     mid = 2
     high = 3
 
+
 class Status(IntEnum):
     yet = 1
     doing = 2
     done = 3
 
-class Task(Model):
+
+class SubTask(Model):
     id = fields.IntField(pk=True)
-    auth = fields.ForeignKeyField('models.Auth', related_name='tasks')
+    task = fields.ForeignKeyField('models.Task', related_name='sub_tasks')
     name = fields.CharField(max_length=100)
     describe = fields.TextField()
     deadline = fields.DatetimeField()
-    importance = fields.IntEnumField(Importance)
     status = fields.IntEnumField(Status)
     started_at = fields.DateField()
     ended_at = fields.DateField()
@@ -28,7 +31,8 @@ class Task(Model):
     updated_at = fields.DateField()
 
     class Meta:
-        table = "task"
+        table = "sub_task"
+
 
     def __str__(self):
         return self.name

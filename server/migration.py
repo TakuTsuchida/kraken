@@ -7,6 +7,7 @@ async def migrate():
             "models": [
                 "models.auth.table",
                 "models.task.table",
+                "models.sub_task.table",
             ]
         }
     )

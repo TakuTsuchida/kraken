@@ -7,5 +7,8 @@ class Auth(Model):
     password = fields.CharField(max_length=100, null=False)
     # created = fields.DatetimeField(auto_now_add=True)
 
+    class Meta:
+        table = "auth"
+
     def __str__(self):
         return self.email
