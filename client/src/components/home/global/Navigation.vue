@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer>
+  <v-navigation-drawer app clipped>
     <template v-slot:prepend>
       <v-list-item two-line>
         <v-list-item-avatar>
@@ -39,7 +39,7 @@ import { mdiAccount } from '@mdi/js'
     data () {
       return {
         items: [
-          { title: 'House Work', icon: mdiAccount, to: '/home/houseWork' },
+          { title: 'Task', icon: mdiAccount, to: '/home/task' },
         ],
       }
     },
