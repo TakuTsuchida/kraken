@@ -14,3 +14,11 @@ async def create(email: str, password: str) -> tuple:
     except Exception as e:
         raise(e)
     return True, None
+
+
+async def get(email: str):
+    try:
+        auth_model = await Auth.filter(email=email).first()
+    except Exception as e:
+        raise(e)
+    return auth_model

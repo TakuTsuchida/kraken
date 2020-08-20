@@ -16,16 +16,16 @@ class Status(IntEnum):
 
 class Task(Model):
     id = fields.IntField(pk=True)
-    auth = fields.ForeignKeyField('models.Auth', related_name='tasks')
+    auth = fields.ForeignKeyField('models.Auth', related_name='task', to_field="id")
     name = fields.CharField(max_length=100)
-    describe = fields.TextField()
-    deadline = fields.DatetimeField()
+    description = fields.TextField()
+    deadline = fields.DateField()
     importance = fields.IntEnumField(Importance)
     status = fields.IntEnumField(Status)
-    started_at = fields.DateField()
-    ended_at = fields.DateField()
-    created_at = fields.DateField()
-    updated_at = fields.DateField()
+    started_at = fields.DateField(null=True)
+    ended_at = fields.DateField(null=True)
+    created_at = fields.DatetimeField(auto_now_add=True)
+    updated_at = fields.DatetimeField(auto_now=True)
 
     class Meta:
         table = "task"
