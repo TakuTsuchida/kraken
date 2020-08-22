@@ -4,15 +4,11 @@ from tortoise.models import Model
 from tortoise import fields
 
 
-class Importance(IntEnum):
-    low = 1
-    mid = 2
-    high = 3
-
 class Status(IntEnum):
     yet = 1
     doing = 2
     done = 3
+
 
 class Task(Model):
     id = fields.IntField(pk=True)
@@ -20,7 +16,7 @@ class Task(Model):
     name = fields.CharField(max_length=100)
     description = fields.TextField()
     deadline = fields.DateField()
-    importance = fields.IntEnumField(Importance)
+    importance = fields.IntField()
     status = fields.IntEnumField(Status)
     started_at = fields.DateField(null=True)
     ended_at = fields.DateField(null=True)

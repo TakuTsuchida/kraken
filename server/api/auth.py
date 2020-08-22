@@ -1,6 +1,6 @@
 RESP_DATA = {}
 
-async def signUp(req, resp):
+async def sign_up(req, resp):
     from models.auth.interface import create as auth_create
 
     # bind
@@ -17,7 +17,7 @@ async def signUp(req, resp):
         return
     resp.status_code = 201
 
-async def signIn(req, resp):
+async def sign_in(req, resp):
     from models.auth.validation import is_authorized as validation_is_authorized
     from blogic.auth import create_token
 
