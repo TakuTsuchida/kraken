@@ -1,5 +1,4 @@
 from models.task.table import Task
-#from lib.date import convert_date
 
 STATUS = {
     "yet": 1,
@@ -18,3 +17,6 @@ async def create(title: str, auth_id: int, description: str, deadline: str, impo
     except Exception as e:
         raise(e)
     return True, None
+
+async def get_by(**kwargs):
+    return await Task.filter(**kwargs, ).order_by("deadline", "importance")
