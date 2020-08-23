@@ -13,5 +13,6 @@ export default {
       description: '',
       deadline: '',
       importance: 5,
+      tasks: [],
     },
 };

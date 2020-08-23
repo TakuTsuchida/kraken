@@ -17,4 +17,7 @@ export default {
         state.deadline = '';
         state.importance = 5;
     },
+    setTasks (state, val) {
+        state.tasks = val;
+    },
 };

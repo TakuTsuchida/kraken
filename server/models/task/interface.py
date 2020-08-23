@@ -19,4 +19,4 @@ async def create(title: str, auth_id: int, description: str, deadline: str, impo
     return True, None
 
 async def get_by(**kwargs):
-    return await Task.filter(**kwargs, ).order_by("deadline", "importance")
+    return await Task.filter(**kwargs, ).order_by("deadline", "-importance")
