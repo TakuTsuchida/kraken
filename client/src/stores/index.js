@@ -5,6 +5,7 @@ import createPersistedState from 'vuex-persistedstate';
 import auth from '@/stores/modules/Auth';
 import account from '@/stores/modules/Account';
 import task from '@/stores/modules/Task';
+import error from '@/stores/modules/Error';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     auth,
     account,
     task,
+    error,
   },
   plugins: [createPersistedState({ storage: window.sessionStorage })],
 })

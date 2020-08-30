@@ -17,6 +17,7 @@ export default {
         }
       })
       .catch(error => {
+        commit('error/setMessage', error, {root: true});
         console.error(error);
       })
   },
@@ -24,6 +25,7 @@ export default {
     // TODO http://localhost/api は共通化するべきである。
     axios.post('http://localhost/api/auth/signUp', credential)
       .catch(error => {
+        commit('error/setMessage', error, {root: true});
         console.error(error);
       })
     commit('removeUser');

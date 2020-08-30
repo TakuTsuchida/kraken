@@ -16,7 +16,6 @@ export default {
                 }
             })
             .catch(error => {
-                commit('error/setMessage', error, {root: true});
                 console.error(error);
             })
     },
@@ -28,7 +27,6 @@ export default {
                 }
             })
             .catch(error => {
-                commit('error/setMessage', error, {root: true});
                 console.error(error);
             })
     },

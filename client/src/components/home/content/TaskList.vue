@@ -17,7 +17,7 @@
                   <v-icon :color="color(item.importance)">
                     {{star}}
                   </v-icon>
-                  <v-icon>
+                  <v-icon v-on:click="onDelete(item.title)">
                     {{deleteIcon}}
                   </v-icon>
                 </v-list-item-action>
@@ -60,6 +60,9 @@ export default {
       if (importance < 7) return 'green';
       if (importance < 9) return 'orange';
       return 'red';
+    },
+    onDelete(id) {
+      console.log(id);
     },
   },
   created() {
