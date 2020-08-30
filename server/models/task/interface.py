@@ -18,5 +18,13 @@ async def create(title: str, auth_id: int, description: str, deadline: str, impo
         raise(e)
     return True, None
 
+async def delete(id: int) -> tuple:
+    task = await Task.get(id=id)
+    try:
+        await task.delete()
+    except Exception as e:
+        raise(e)
+    return True, None
+
 async def get_by(**kwargs):
     return await Task.filter(**kwargs, ).order_by("deadline", "-importance")

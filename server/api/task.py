@@ -30,6 +30,25 @@ async def task_create(req, resp):
 
     resp.status_code = 201
 
+async def task_delete(req, resp, *, id):
+    from models.task.interface import delete as task_delete
+    from api.common import get_auth
+
+    # auth
+    auth_model, ok = await get_auth(req)
+    if not ok:
+        return
+
+    # registration
+    is_ok, message = await task_delete(id=id)
+    if not is_ok:
+        RESP_DATA["message"] = message
+        resp.media = RESP_DATA
+        resp.status_code = 400
+        return
+
+    resp.status_code = 200
+
 async def task_list(req, resp):
     from api.common import get_auth
     from models.task.interface import get_by
