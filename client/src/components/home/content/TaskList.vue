@@ -17,9 +17,9 @@
                   <v-icon :color="color(item.importance)">
                     {{star}}
                   </v-icon>
-                  <v-icon v-on:click="onDelete(item.title)">
-                    {{deleteIcon}}
-                  </v-icon>
+                  <v-btn icon v-on:click="onDelete(item.id)">
+                    <v-icon>{{deleteIcon}}</v-icon>
+                  </v-btn>
                 </v-list-item-action>
               </v-list-item>
               <v-divider
@@ -52,7 +52,7 @@ export default {
   methods: {
     ...mapActions(
       'task',
-      ['onGetAll']
+      ['onGetAll', 'onDelete']
     ),
     color(importance) {
       if (importance < 3) return 'indigo';
@@ -60,9 +60,6 @@ export default {
       if (importance < 7) return 'green';
       if (importance < 9) return 'orange';
       return 'red';
-    },
-    onDelete(id) {
-      console.log(id);
     },
   },
   created() {

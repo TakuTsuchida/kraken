@@ -20,6 +20,18 @@ export default {
                 console.error(error);
             })
     },
+    onDelete( {commit}, id) {
+        axios.delete(`http://localhost/api/task/delete/${id}`)
+            .then(res => {
+                if (res.status === 200) {
+                    location.reload();
+                }
+            })
+            .catch(error => {
+                commit('error/setMessage', error, {root: true});
+                console.error(error);
+            })
+    },
     onGetAll( {commit } ) {
         axios.get('http://localhost/api/task/list')
             .then(res => {
