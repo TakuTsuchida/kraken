@@ -9,7 +9,7 @@
               <v-list-item :key="item.title">
                 <v-list-item-content>
                   <v-list-item-title v-text="item.title"></v-list-item-title>
-                  <v-list-item-subtitle v-text="item.description"></v-list-item-subtitle>
+                  <v-list-item-subtitle v-html="viewDescription(item.description)"></v-list-item-subtitle>
                 </v-list-item-content>
 
                 <v-list-item-action>
@@ -60,6 +60,14 @@ export default {
       if (importance < 7) return 'green';
       if (importance < 9) return 'orange';
       return 'red';
+    },
+    viewDescription(desc) {
+      const splited = desc.split('\n');
+      if (splited.length > 2) {
+        splited.splice(2);
+        splited.push('...');
+      }
+      return splited.join('<br>');
     },
   },
   created() {
