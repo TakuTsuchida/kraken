@@ -23,12 +23,12 @@ class SubTask(Model):
     task = fields.ForeignKeyField('models.Task', related_name='sub_tasks')
     name = fields.CharField(max_length=100)
     describe = fields.TextField()
-    deadline = fields.DatetimeField()
+    deadline = fields.DateField()
     status = fields.IntEnumField(Status)
     started_at = fields.DateField()
     ended_at = fields.DateField()
-    created_at = fields.DateField()
-    updated_at = fields.DateField()
+    created_at = fields.DatetimeField(auto_now_add=True)
+    updated_at = fields.DatetimeField(auto_now=True)
 
     class Meta:
         table = "sub_task"

@@ -12,7 +12,7 @@
   </v-app>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import router from '@/router/index'
 
 import Header from '@/components/home/global/Header.vue'
@@ -24,6 +24,12 @@ export default {
     Header,
     Navigation,
   },
+  methods: {
+    ...mapMutations(
+      'error',
+      ['clearMessage']
+    ),
+  },
   computed: {
     ...mapState(
       'auth',
@@ -32,6 +38,7 @@ export default {
   },
   created() {
     if (!this.token) router.push('/auth/signin');
+    this.clearMessage();
   },
 }
 </script>

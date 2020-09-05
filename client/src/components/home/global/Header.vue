@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar color="#263238" dense dark max-height="48px">
+    <v-app-bar color="#263238" dense dark max-height="48px" app clippedLeft>
         <v-btn icon>
             <v-icon>{{ mdiHomeOutline }}</v-icon>
         </v-btn>

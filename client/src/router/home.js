@@ -1,14 +1,14 @@
 import Home from '@/components/home/Index'
-// import Main from '@/components/organisums/home/pages/Main'
+import Task from '@/components/home/pages/Task'
 // import  from '@/components/organisums/account/Task'
 
 export default {
   path: '/home',
   component: Home,
-  // children: [
-  //   {
-  //     path: '',
-  //     component: Main,
-  //   },
-  // ],
+  children: [
+    {
+      path: 'task',
+      component: Task,
+    },
+  ],
 }
