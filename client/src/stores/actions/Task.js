@@ -1,4 +1,5 @@
 import axios from 'axios';
+import router from '@/router/index'
 
 export default {
     onPost( {state, commit} ) {
@@ -12,7 +13,7 @@ export default {
             .then(res => {
                 if (res.status === 201) {
                     commit('clearTask');
-                    location.reload();
+                    router.push('/home/task')
                 }
             })
             .catch(error => {

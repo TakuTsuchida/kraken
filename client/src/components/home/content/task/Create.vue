@@ -53,16 +53,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from 'vuex';
+import importance from '@/modules/color';
 export default {
-  name: 'TaskForm',
+  name: 'TaskCreate',
   computed: {
     color() {
-      if (this.importance < 3) return 'indigo';
-      if (this.importance < 5) return 'teal';
-      if (this.importance < 7) return 'green';
-      if (this.importance < 9) return 'orange';
-      return 'red';
+      return importance(this.importance);
     },
     title: {
       get() { return this.$store.state.task.title },

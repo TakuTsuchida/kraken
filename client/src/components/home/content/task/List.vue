@@ -35,8 +35,10 @@
 </template>
 
 <script>
-import { mdiStar, mdiDelete } from '@mdi/js'
-import { mapActions } from 'vuex'
+import { mdiStar, mdiDelete } from '@mdi/js';
+import { mapActions } from 'vuex';
+
+import importance from '@/modules/color';
 export default {
   data () {
     return {
@@ -54,12 +56,8 @@ export default {
       'task',
       ['onGetAll', 'onDelete']
     ),
-    color(importance) {
-      if (importance < 3) return 'indigo';
-      if (importance < 5) return 'teal';
-      if (importance < 7) return 'green';
-      if (importance < 9) return 'orange';
-      return 'red';
+    color(num) {
+        return importance(num);
     },
     viewDescription(desc) {
       const splited = desc.split('\n');
