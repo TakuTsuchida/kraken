@@ -5,7 +5,7 @@ aniso8601==7.0.0
 apispec==3.3.0
 apistar==0.7.2
 asyncpg==0.20.1
-certifi==2020.4.5.1
+certifi==2022.12.7
 cffi==1.14.0
 chardet==3.0.4
 ciso8601==2.1.3
